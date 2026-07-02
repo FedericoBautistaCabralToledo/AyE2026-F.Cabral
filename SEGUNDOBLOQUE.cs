@@ -1,4 +1,4 @@
-﻿using System.ComponentModel.Design;
+using System.ComponentModel.Design;
 
 void ejercicioA()
 {
@@ -42,127 +42,127 @@ void ejercicioB()
         }
     }
 }
-    void ejercicioC()
+void ejercicioC()
+{
+    int n = 8;
+    int a = 0;
+    int b = 1;
+
+    for (int i = 0; i < n; i++)
     {
-        int n = 8;
-        int a = 0;
-        int b = 1;
+        Console.WriteLine(a);
 
-        for (int i = 0; i < n; i++)
-        {
-            Console.WriteLine(a);
+        int sig = a + b;
+        a = b;
+        b = sig;
+    }
+}
 
-            int sig = a + b;
-            a = b;
-            b = sig;
-        }
+void ejercicioD()
+{
+    int sumar()
+    {
+        Console.WriteLine("\nIngrese 2 números a sumar:");
+        int numero1 = Convert.ToInt32(Console.ReadLine());
+        int numero2 = Convert.ToInt32(Console.ReadLine());
+        return numero1 + numero2;
     }
 
-    void ejercicioD()
+    int restar()
     {
-        int sumar()
-        {
-            Console.WriteLine("\nIngrese 2 números a sumar:");
-            int numero1 = Convert.ToInt32(Console.ReadLine());
-            int numero2 = Convert.ToInt32(Console.ReadLine());
-            return numero1 + numero2;
-        }
-
-        int restar()
-        {
-            Console.WriteLine("\nIngrese 2 números a restar:");
-            int numero1 = Convert.ToInt32(Console.ReadLine());
-            int numero2 = Convert.ToInt32(Console.ReadLine());
-            return numero1 - numero2;
-        }
-
-        int multiplicar()
-        {
-            Console.WriteLine("\nIngrese 2 números a multiplicar:");
-            int numero1 = Convert.ToInt32(Console.ReadLine());
-            int numero2 = Convert.ToInt32(Console.ReadLine());
-            return numero1 * numero2;
-        }
-
-        int dividir()
-        {
-            Console.WriteLine("\nIngrese 2 números a dividir:");
-            int numero1 = Convert.ToInt32(Console.ReadLine());
-            int numero2 = Convert.ToInt32(Console.ReadLine());
-
-            if (numero2 == 0)
-            {
-                Console.WriteLine("Error: No se puede dividir por cero.");
-                return 0;
-            }
-
-            return numero1 / numero2;
-        }
-
-        bool continuar = true;
-
-        while (continuar)
-        {
-            Console.WriteLine("1. Sumar");
-            Console.WriteLine("2. Restar");
-            Console.WriteLine("3. Multiplicar");
-            Console.WriteLine("4. Dividir");
-            Console.WriteLine("5. Salir");
-            Console.Write("Seleccione una opción: ");
-
-            string opcion = Console.ReadLine();
-            int resultado = 0;
-
-            switch (opcion)
-            {
-                case "1":
-                    resultado = sumar();
-                    Console.WriteLine($"El resultado de la suma es: {resultado}");
-                    break;
-                case "2":
-                    resultado = restar();
-                    Console.WriteLine($"El resultado de la resta es: {resultado}");
-                    break;
-                case "3":
-                    resultado = multiplicar();
-                    Console.WriteLine($"El resultado de la multiplicación es: {resultado}");
-                    break;
-                case "4":
-                    resultado = dividir();
-                    Console.WriteLine($"El resultado de la división es: {resultado}");
-                    break;
-                case "5":
-                    Console.WriteLine("CHAU");
-                    continuar = false;
-                    break;
-                default:
-                    Console.WriteLine("Opción no válida. Intente de nuevo.");
-                    break;
-            }
-        }
+        Console.WriteLine("\nIngrese 2 números a restar:");
+        int numero1 = Convert.ToInt32(Console.ReadLine());
+        int numero2 = Convert.ToInt32(Console.ReadLine());
+        return numero1 - numero2;
     }
 
-
-    void ejercicioE()
+    int multiplicar()
     {
-        Console.WriteLine("Ingresa un numero y te digo el factorial.");
-        int num = Convert.ToInt32(Console.ReadLine());
+        Console.WriteLine("\nIngrese 2 números a multiplicar:");
+        int numero1 = Convert.ToInt32(Console.ReadLine());
+        int numero2 = Convert.ToInt32(Console.ReadLine());
+        return numero1 * numero2;
+    }
 
-        int factorial = 1;
+    int dividir()
+    {
+        Console.WriteLine("\nIngrese 2 números a dividir:");
+        int numero1 = Convert.ToInt32(Console.ReadLine());
+        int numero2 = Convert.ToInt32(Console.ReadLine());
 
-        if (num < 0)
+        if (numero2 == 0)
         {
-            Console.WriteLine("Error: El número es negativo.");
+            Console.WriteLine("Error: No se puede dividir por cero.");
+            return 0;
         }
-        else
+
+        return numero1 / numero2;
+    }
+
+    bool continuar = true;
+
+    while (continuar)
+    {
+        Console.WriteLine("1. Sumar");
+        Console.WriteLine("2. Restar");
+        Console.WriteLine("3. Multiplicar");
+        Console.WriteLine("4. Dividir");
+        Console.WriteLine("5. Salir");
+        Console.Write("Seleccione una opción: ");
+
+        string opcion = Console.ReadLine();
+        int resultado = 0;
+
+        switch (opcion)
         {
-            for (int i = 1; i <= num; i++)
-            {
-                factorial = factorial * i;
-            }
-            Console.WriteLine("El factorial de " + num + " es " + factorial);
+            case "1":
+                resultado = sumar();
+                Console.WriteLine($"El resultado de la suma es: {resultado}");
+                break;
+            case "2":
+                resultado = restar();
+                Console.WriteLine($"El resultado de la resta es: {resultado}");
+                break;
+            case "3":
+                resultado = multiplicar();
+                Console.WriteLine($"El resultado de la multiplicación es: {resultado}");
+                break;
+            case "4":
+                resultado = dividir();
+                Console.WriteLine($"El resultado de la división es: {resultado}");
+                break;
+            case "5":
+                Console.WriteLine("CHAU");
+                continuar = false;
+                break;
+            default:
+                Console.WriteLine("Opción no válida. Intente de nuevo.");
+                break;
         }
     }
+}
+
+
+void ejercicioE()
+{
+    Console.WriteLine("Ingresa un numero y te digo el factorial.");
+    int num = Convert.ToInt32(Console.ReadLine());
+
+    int factorial = 1;
+
+    if (num < 0)
+    {
+        Console.WriteLine("Error: El número es negativo.");
+    }
+    else
+    {
+        for (int i = 1; i <= num; i++)
+        {
+            factorial = factorial * i;
+        }
+        Console.WriteLine("El factorial de " + num + " es " + factorial);
+    }
+}
 
 void ejercicioF()
 {
@@ -181,90 +181,90 @@ void ejercicioF()
 }
 
 void ejercicioG()
-    {
-        int cont = 0;
+{
+    int cont = 0;
 
-        for (int test = 0; test < 100; test += 2)
-        {
-            cont++;
-        }
-        Console.WriteLine("Hay " + cont + " numeros pares de 1 a 100");
+    for (int test = 0; test < 100; test += 2)
+    {
+        cont++;
     }
+    Console.WriteLine("Hay " + cont + " numeros pares de 1 a 100");
+}
 
 
-    void ejercicioH()
+void ejercicioH()
+{
+    bool pasaje = true;
+    while (pasaje == true)
     {
-        bool pasaje = true;
-        while (pasaje == true)
+        Console.WriteLine("1 para pasar de C° a F°, 2 para salir");
+        int o = Convert.ToInt32(Console.ReadLine());
+
+        switch (o)
         {
-            Console.WriteLine("1 para pasar de C° a F°, 2 para salir");
-            int o = Convert.ToInt32(Console.ReadLine());
-
-            switch (o)
-            {
-                case 1:
-                    bool usuario = true;
-                    while (usuario != false)
-                    {
-                        Console.WriteLine("Ingrese la temperatura(o 99999 para salir)");
-                        int temperatura = Convert.ToInt32(Console.ReadLine());
-
-                        if (temperatura == 99999)
-                        {
-                            usuario = false;
-                        }
-                        else
-                        {
-                            double fahrenheit = (temperatura * 1.8) + 32;
-                            Console.WriteLine("Resultado: " + fahrenheit + "°F");
-                        }
-                    }
-                    break;
-                case 2:
-                    pasaje = false;
-                    Console.WriteLine("Saliendo");
-                    break;
-
-                default:
-                    Console.WriteLine("Opcion no disponible");
-                    break;
-            }
-        }
-    }
-
-    void ejercicioI()
-    {
-        Console.WriteLine("Ingresa un numero entero.");
-        int num = Convert.ToInt32(Console.ReadLine());
-
-        bool primo = true;
-
-        if (num < 2)
-        {
-            primo = false;
-        }
-        else
-        {
-
-            for (int i = 2; i < num; i++)
-            {
-                if (num % i == 0)
+            case 1:
+                bool usuario = true;
+                while (usuario != false)
                 {
-                    primo = false;
-                    break;
-                }
-            }
-        }
+                    Console.WriteLine("Ingrese la temperatura (O 1234567890 para salir)");
+                    int temperatura = Convert.ToInt32(Console.ReadLine());
 
-        if (primo)
-        {
-            Console.WriteLine(num + " es primo");
-        }
-        else
-        {
-            Console.WriteLine(num + " no es primo");
+                    if (temperatura == 1234567890)
+                    {
+                        usuario = false;
+                    }
+                    else
+                    {
+                        double fahrenheit = (temperatura * 1.8) + 32;
+                        Console.WriteLine("Resultado: " + fahrenheit + "°F");
+                    }
+                }
+                break;
+            case 2:
+                pasaje = false;
+                Console.WriteLine("Saliendo");
+                break;
+
+            default:
+                Console.WriteLine("Opcion no disponible");
+                break;
         }
     }
+}
+
+void ejercicioI()
+{
+    Console.WriteLine("Ingresa un numero entero.");
+    int num = Convert.ToInt32(Console.ReadLine());
+
+    bool primo = true;
+
+    if (num < 2)
+    {
+        primo = false;
+    }
+    else
+    {
+
+        for (int i = 2; i < num; i++)
+        {
+            if (num % i == 0)
+            {
+                primo = false;
+                break;
+            }
+        }
+    }
+
+    if (primo)
+    {
+        Console.WriteLine(num + " es primo");
+    }
+    else
+    {
+        Console.WriteLine(num + " no es primo");
+    }
+}
 
 void ejercicioJ()
 {
@@ -451,7 +451,7 @@ void ejercicioQ()
 
         if (numerosaleatorios > 50)
         {
-            Console.WriteLine("Los 10 numeros generados(1 al 100) mayores a 50 son:" + numerosaleatorios);
+            Console.WriteLine("Los 10 numeros generados (1 al 100) mayores a 50 son:" + numerosaleatorios);
         }
     }
 }
@@ -512,89 +512,107 @@ bool ejecutando = true;
 
 while (ejecutando == true)
 {
-    Console.WriteLine("Ingrese 1 para ejercicio a, 2 para ejercicio b, 3 para ejercicio c, 4 para ejercicio d, 5 para ejercicio e, 6 para ejercicio f, 7 para ejercicio g, 8 para ejercicio h, 9 para ejercicio i, 10 para ejercicio j, 11 para ejercicio k, 12 para ejercicio l, 13 para ejercicio m, 14 para ejercicio n, 15 para ejercicio o, 16 para ejercicio p, 17 para ejercicio q, 18 para ejercicio r , 19 para ejercicioa2 , 20 para ejercicio b2 , 21 para ejercicio c2, 22 para ejercicio d2, 23 para ejercicio e2 , 24 para ejercicio g2 , 25 para ejercicio h2 , 26 para ejercicio i2 , 27 para ejercicio l2 , 28 para ejercicio n2 , 29 para ejercicio o2 , 30 para ejercicio p2 , 31 para ejercicio q2 , 32 para ejercicio r2 , 33 para ejercicio s , 34 para ejercicio a3 ,35para salir");
+    Console.WriteLine("Elija un numero del 1-17 para ejecutar un ejercicio.");
     int numero = Convert.ToInt32(Console.ReadLine());
 
     switch (numero)
     {
         case 1:
+            Console.WriteLine("Ejercicio A");
             ejercicioA();
             break;
 
         case 2:
+            Console.WriteLine("Ejercicio B");
             ejercicioB();
             break;
 
         case 3:
+            Console.WriteLine("Ejercicio C");
             ejercicioC();
             break;
 
         case 4:
+            Console.WriteLine("Ejercicio D");
             ejercicioD();
             break;
 
         case 5:
+            Console.WriteLine("Ejercicio E");
             ejercicioE();
             break;
 
         case 6:
+            Console.WriteLine("Ejercicio F");
             ejercicioF();
             break;
 
         case 7:
+            Console.WriteLine("Ejercicio G");
             ejercicioG();
             break;
 
         case 8:
+            Console.WriteLine("Ejercicio H");
             ejercicioH();
             break;
 
         case 9:
+            Console.WriteLine("Ejercicio I");
             ejercicioI();
             break;
 
         case 10:
+            Console.WriteLine("Ejercicio J");
             ejercicioJ();
             break;
 
         case 11:
+            Console.WriteLine("Ejercicio K");
             ejercicioK();
             break;
 
         case 12:
+            Console.WriteLine("Ejercicio L");
             ejercicioL();
             break;
 
         case 13:
+            Console.WriteLine("Ejercicio M");
             ejercicioM();
             break;
 
         case 14:
+            Console.WriteLine("Ejercicio N");
             ejercicioN();
             break;
 
         case 15:
+            Console.WriteLine("Ejercicio O");
             ejercicioO();
             break;
 
         case 16:
+            Console.WriteLine("Ejercicio P");
             ejercicioP();
             break;
 
         case 17:
+            Console.WriteLine("Ejercicio Q");
             ejercicioQ();
             break;
 
         case 18:
+            Console.WriteLine("Ejercicio R");
             ejercicioR();
             break;
         case 35:
             ejecutando = false;
-            Console.WriteLine("Programa finalizado. ¡Hasta luego!");
+            Console.WriteLine("chau");
             break;
 
         default:
-            Console.WriteLine("Esa opción no existe, intenta con un número del 1 al 35.");
+            Console.WriteLine("Intenta con un numero del 1 al 17.");
             break;
     }
 }
