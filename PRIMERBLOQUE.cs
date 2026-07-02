@@ -1,4 +1,4 @@
-﻿void ejercicioA()
+void ejercicioA()
 {
     for (int num = 0; num < 100; num += 3)
     {
@@ -270,7 +270,7 @@ void ejercicioR()
 }
 
 
-Console.WriteLine("Ingrese el numero del ejercicio que quiere hacer.");
+Console.WriteLine("Ingrese LA LETRA del ejercicio que quiere hacer.");
 string ejernum = Console.ReadLine();
 string ejernum2 = ejernum.ToUpper();
 switch (ejernum2)
