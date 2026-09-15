@@ -100,5 +100,88 @@ namespace ConsoleApp1
 
             return ContarNodosRecursivo(nodo.izquierdo) + ContarNodosRecursivo(nodo.derecho) + 1;
         }
+        public int ObtenerAltura()
+        {
+            return ObtenerAlturaRecursivo(raiz);
+        }
+
+        private int ObtenerAlturaRecursivo(Nodo nodo)
+        {
+            if (nodo == null) return 0;
+
+            int altIzq = ObtenerAlturaRecursivo(nodo.izquierdo);
+            int altDer = ObtenerAlturaRecursivo(nodo.derecho);
+
+            return 1 + Math.Max(altIzq, altDer);
+        }
+
+        public int ContarHojas()
+        {
+            return ContarHojasRecursivo(raiz);
+        }
+
+        private int ContarHojasRecursivo(Nodo nodo)
+        {
+            if (nodo == null) return 0;
+            if (nodo.izquierdo == null && nodo.derecho == null) return 1;
+
+            return ContarHojasRecursivo(nodo.izquierdo) + ContarHojasRecursivo(nodo.derecho);
+        }
+        public void Eliminar(int valor)
+        {
+            raiz = EliminarRecursivo(raiz, valor);
+        }
+
+        private Nodo EliminarRecursivo(Nodo nodo, int valor)
+        {
+            if (nodo == null) return null;
+
+            if (valor < nodo.valor)
+            {
+                nodo.izquierdo = EliminarRecursivo(nodo.izquierdo, valor);
+            }
+            else if (valor > nodo.valor)
+            {
+                nodo.derecho = EliminarRecursivo(nodo.derecho, valor);
+            }
+            else
+            {
+                if (nodo.izquierdo == null) return nodo.derecho;
+                if (nodo.derecho == null) return nodo.izquierdo;
+
+                nodo.valor = EncontrarMinimoValor(nodo.derecho);
+                nodo.derecho = EliminarRecursivo(nodo.derecho, nodo.valor);
+            }
+
+            return nodo;
+        }
+
+        private int EncontrarMinimoValor(Nodo nodo)
+        {
+            int min = nodo.valor;
+            while (nodo.izquierdo != null)
+            {
+                min = nodo.izquierdo.valor;
+                nodo = nodo.izquierdo;
+            }
+            return min;
+        }
+
+        public bool EsValido()
+        {
+            return EsValidoRecursivo(raiz, null, null);
+        }
+
+        private bool EsValidoRecursivo(Nodo nodo, int? min, int? max)
+        {
+            if (nodo == null) return true;
+            if ((min != null && nodo.valor <= min) || (max != null && nodo.valor >= max))
+            {
+                return false;
+            }
+
+            return EsValidoRecursivo(nodo.izquierdo, min, nodo.valor) &&
+                   EsValidoRecursivo(nodo.derecho, nodo.valor, max);
+        }
     }
 }
