@@ -16,31 +16,12 @@ namespace ConsoleApp1
             }
             SaveChangesAsync();
 
-        //Eliminar
-
-
-
-        //Agregar
-
-
-
-        //Consultar
-
-        //Actualizar
-
-
-        public void OrdenamientoBurbujaAlfabetico()
+        void OrdenamientoBurbujaAlfabeticamente()
         {
-            for (int i = 0; i < Agentes.Count ; i++)
+            for (int u = 0; u < Agentes.Count; u++)
             {
-               for (int k = 0; k < Agentes.Count; k++)
-               {
-
-
-
-               }
+                Console.WriteLine(Agentes[u].nombre_agente);
             }
-
         }
 
     }
